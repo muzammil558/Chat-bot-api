@@ -1,0 +1,346 @@
+.split-container {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+}
+
+.chat-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: #f8f9fa;
+}
+
+.chat-header {
+  padding: 1rem;
+  background-color: white;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.header-text {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #212529;
+}
+
+.messages-container {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.message {
+  display: flex;
+  gap: 0.5rem;
+  align-items: flex-start;
+}
+
+.message-user {
+  flex-direction: row-reverse;
+}
+
+.avatar {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar-user {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.avatar-assistant {
+  background-color: #e5e7eb;
+  color: #4b5563;
+}
+
+.avatar-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.message-bubble {
+  max-width: 80%;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  white-space: pre-wrap;
+}
+
+.message-bubble-user {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.message-bubble-assistant {
+  background-color: white;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.loading-indicator {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.loading-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: #6b7280;
+  border-radius: 50%;
+  animation: bounce 1s infinite;
+}
+
+.loading-dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.loading-dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-0.5rem);
+  }
+}
+
+.input-form {
+  padding: 1rem;
+  background-color: white;
+  border-top: 1px solid #e9ecef;
+}
+
+.input-container {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.chat-input {
+  flex: 1;
+  padding: 0.5rem 1rem;
+  border: 1px solid #e9ecef;
+  border-radius: 0.375rem;
+  outline: none;
+}
+
+.chat-input:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);
+}
+
+.send-button {
+  padding: 0.5rem;
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.send-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.preview-panel {
+  width: 50%;
+  background-color: #f8f9fa;
+  border-left: 1px solid #e9ecef;
+  display: flex;
+  flex-direction: column;
+}
+
+.preview-header {
+  padding: 1rem;
+  background-color: white;
+  border-bottom: 1px solid #e9ecef;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.preview-tabs {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+}
+
+.preview-tab {
+  padding: 0.5rem 1rem;
+  border: none;
+  background: none;
+  cursor: pointer;
+  border-radius: 0.375rem;
+  white-space: nowrap;
+}
+
+.preview-tab.active {
+  background-color: #f3f4f6;
+  font-weight: 500;
+}
+
+.preview-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.preview-button {
+  padding: 0.5rem;
+  background: none;
+  border: none;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.preview-button:hover {
+  background-color: #f3f4f6;
+}
+
+.preview-button.active {
+  background-color: #e5e7eb;
+}
+
+.copy-tooltip {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 0.5rem;
+  padding: 0.25rem 0.5rem;
+  background-color: #1f2937;
+  color: white;
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  white-space: nowrap;
+}
+
+.preview-content {
+  flex: 1;
+  overflow: auto;
+  padding: 1rem;
+}
+
+.preview-text {
+  margin: 0;
+  padding: 1rem;
+  background-color: white;
+  border-radius: 0.375rem;
+}
+/* Add these to your existing CSS */
+.preview-frame-container {
+  width: 100%;
+  height: 100%;
+  background: white;
+  border-radius: 0.375rem;
+  overflow: hidden;
+}
+
+.preview-frame {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: white;
+}
+
+.preview-content {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 4rem);
+  padding: 1rem;
+}
+
+.preview-text {
+  flex: 1;
+  overflow: auto;
+  margin: 0;
+  padding: 1rem;
+  background-color: white;
+  border-radius: 0.375rem;
+  font-family: monospace;
+}
+.preview-button.loading {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Update the preview button hover state */
+.preview-button:hover {
+  background-color: #f3f4f6;
+  transform: scale(1.1);
+  transition: all 0.2s ease;
+}
+
+.preview-button:active {
+  transform: scale(0.95);
+}
+.preview-frame-container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.preview-frame {
+  border: none;
+  background: white;
+}
+.image-upload-button {
+  cursor: pointer;
+  padding: 8px;
+  margin-right: 8px;
+  background: none;
+  border: none;
+  font-size: 20px;
+}
+
+.image-preview {
+  position: relative;
+  margin-top: 10px;
+  max-width: 200px;
+}
+
+.image-preview img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.image-preview button {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: #ff4444;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
